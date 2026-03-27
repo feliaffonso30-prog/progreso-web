@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Progreso Global - Nivel Experto</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+header h1 { font-size: 48px; }
+header p { font-size: 20px; opacity: 0.9; }
+
+nav {
+    position: sticky;
+    top: 0;
+    background: #020617;
+    padding: 12px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: #38bdf8;
+    margin: 0 12px;
+    text-decoration: none;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+section.visible { opacity: 1; transform: translateY(0); }
+
+.question {
+    font-size: 34px;
+    font-weight: bold;
+    color: #60a5fa;
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+footer {
+    background: #020617;
+    padding: 50px;
+    text-align: center;
+}
+
+.small { font-size: 14px; opacity: 0.7; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>¿El mundo está empeorando… o estamos viviendo el mayor progreso de la historia?</h1>
+<p>Análisis profundo basado en evidencia histórica, económica y social</p>
+</header>
+
+<nav>
+<a href="#tema1">Pasado</a>
+<a href="#tema2">Percepción</a>
+<a href="#tema3">Motores</a>
+<a href="#tema4">Globalización</a>
+<a href="#tema5">Datos</a>
+<a href="#tema6">Futuro</a>
+</nav>
+
+<section id="tema1">
+<div class="question">¿Vivíamos mejor antes o es solo una ilusión?</div>
+<div class="card">
+<img src="https://ourworldindata.org/grapher/world-population-in-extreme-poverty.png">
+<p>
+Durante la mayor parte de la historia humana, la vida estuvo marcada por la pobreza extrema, la enfermedad y la falta de oportunidades.
+</p>
+<p>
+La esperanza de vida era inferior a 40 años y la mortalidad infantil era extremadamente alta.
+</p>
+<p>
+Hoy, gracias al desarrollo económico, la innovación tecnológica y la cooperación global, vivimos más, mejor y con más oportunidades que nunca.
+</p>
+<canvas id="chart1"></canvas>
+</div>
+</section>
+
+<section id="tema2">
+<div class="question">¿Por qué creemos que el mundo está peor si los datos dicen lo contrario?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/News.jpg">
+<p>
+Nuestra mente está diseñada para detectar peligros. Por eso prestamos más atención a las malas noticias.
+</p>
+<p>
+Los medios amplifican este efecto mostrando crisis constantemente.
+</p>
+<p>
+Sin embargo, los indicadores globales muestran una mejora sostenida en salud, educación, ingreso y seguridad.
+</p>
+</div>
+</section>
+
+<section id="tema3">
+<div class="question">¿Qué factores históricos hicieron posible este progreso?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Industrial_Revolution.jpg">
+<p class="highlight">Tres revoluciones fundamentales:</p>
+<ul>
+<li>Ilustración → ciencia y razón</li>
+<li>Liberalismo → libertad y derechos</li>
+<li>Revolución Industrial → crecimiento económico</li>
+</ul>
+<p>
+Estos procesos permitieron romper con siglos de estancamiento económico.
+</p>
+</div>
+</section>
+
+<section id="tema4">
+<div class="question">¿La globalización es realmente clave para el desarrollo?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Container_ship.jpg">
+<p>
+La globalización conecta economías, permitiendo comercio, inversión y transferencia tecnológica.
+</p>
+<p>
+Los países que se integraron al comercio internacional crecieron más rápido.
+</p>
+<p>
+Esto permitió reducir la pobreza y mejorar la calidad de vida a nivel global.
+</p>
+<canvas id="chart2"></canvas>
+</div>
+</section>
+
+<section id="tema5">
+<div class="question">¿Qué dicen los datos actuales sobre el progreso?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Lightbulb.jpg">
+<p>
+✔ Reducción masiva de la pobreza extrema
+✔ Aumento de la esperanza de vida
+✔ Mayor acceso a educación
+✔ Reducción de mortalidad infantil
+✔ Mayor acceso a tecnología
+</p>
+<p>
+Nunca en la historia tantos seres humanos vivieron con tanto bienestar.
+</p>
+</div>
+</section>
+
+<section id="tema6">
+<div class="question">¿Qué puede frenar el progreso en el futuro?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Wall_barrier.jpg">
+<p>
+El progreso no es inevitable.
+</p>
+<p>
+Puede verse afectado por:
+</p>
+<ul>
+<li>Proteccionismo económico</li>
+<li>Conflictos políticos</li>
+<li>Rechazo a la innovación</li>
+<li>Limitación de libertades</li>
+</ul>
+<p>
+El futuro depende de nuestras decisiones.
+</p>
+</div>
+</section>
+
+<section>
+<div class="question">Conclusión Final</div>
+<div class="card">
+<p>
+El mundo no es perfecto, pero nunca ha sido mejor.
+</p>
+<p>
+El progreso es real, medible y comprobable.
+</p>
+<p>
+La clave está en comprenderlo, valorarlo y defenderlo.
+</p>
+</div>
+</section>
+
+<footer>
+<p><strong>Autores:</strong></p>
+<p>Felipe Affonso | Walkiria Alvarez | Pedro Aldave</p>
+<br>
+<p><strong>Bibliografía:</strong></p>
+<p class="small">
+Norberg, J. (2016). Progreso.<br>
+Our World in Data.<br>
+Banco Mundial.<br>
+Naciones Unidas (PNUD).
+</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("visible");
+        }
+    });
+});
+
+new Chart(document.getElementById('chart1'), {
+    type: 'line',
+    data: {
+        labels: ['1820','1900','1950','2000','2020'],
+        datasets: [{
+            label: 'Pobreza extrema (%)',
+            data: [90, 70, 55, 30, 10]
+        }]
+    }
+});
+
+new Chart(document.getElementById('chart2'), {
+    type: 'bar',
+    data: {
+        labels: ['Países abiertos','Países cerrados'],
+        datasets: [{
+            label: 'Crecimiento',
+            data: [5, 2]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
