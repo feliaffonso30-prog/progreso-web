@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Progreso Global - Nivel WOW</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+}
+
+header h1 {
+    font-size: 52px;
+    animation: fadeIn 2s ease;
+}
+
+header p {
+    font-size: 20px;
+    opacity: 0.9;
+    animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);} 
+    to {opacity:1; transform:translateY(0);} 
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background: #020617;
+    padding: 12px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: #38bdf8;
+    margin: 0 12px;
+    text-decoration: none;
+}
+
+section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+section.visible { opacity: 1; transform: translateY(0); }
+
+.question {
+    font-size: 36px;
+    font-weight: bold;
+    color: #60a5fa;
+}
+
+.card {
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 16px;
+    margin-top: 30px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+footer {
+    background: #020617;
+    padding: 50px;
+    text-align: center;
+}
+
+.small { font-size: 14px; opacity: 0.7; }
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #3b82f6;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hidden { display: none; }
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>¿El mundo está empeorando?</h1>
+<p>Descubrí la verdad detrás del progreso humano</p>
+</header>
+
+<nav>
+<a href="#tema1">Pasado</a>
+<a href="#tema2">Percepción</a>
+<a href="#tema3">Motores</a>
+<a href="#tema4">Globalización</a>
+<a href="#tema5">Datos</a>
+<a href="#tema6">Futuro</a>
+</nav>
+
+<section id="tema1">
+<div class="question">¿Vivíamos mejor antes?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/World_population_in_extreme_poverty%2C_1820_to_2015.png">
+<p>
+Durante siglos, la vida humana estuvo marcada por condiciones extremadamente difíciles. La mayoría de la población mundial vivía en pobreza extrema, sin acceso a servicios básicos como salud, educación o alimentación suficiente.
+</p>
+<p>
+En el año 1820, más del 90% de la población mundial vivía con ingresos mínimos. Esto implicaba una vida corta, con alta mortalidad infantil y enfermedades constantes.
+</p>
+<p>
+Hoy, gracias al crecimiento económico, la innovación tecnológica y el desarrollo científico, ese número se redujo drásticamente a menos del 10%.
+</p>
+<p>
+Este cambio representa uno de los mayores logros de la historia humana.
+</p>
+<canvas id="chart1"></canvas>
+<button onclick="toggle('extra1')">Ver más</button>
+<p id="extra1" class="hidden">Además, la producción de alimentos aumentó, las vacunas salvaron millones de vidas y el acceso al conocimiento se expandió como nunca antes.</p>
+</div>
+</section>
+
+<section id="tema2">
+<div class="question">¿Por qué creemos que el mundo está peor?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/News.jpg/800px-News.jpg">
+<p>
+A pesar de los avances, muchas personas creen que el mundo está empeorando. Esto se debe a varios factores psicológicos y sociales.
+</p>
+<p>
+Uno de ellos es el sesgo de negatividad: nuestro cerebro presta más atención a los peligros que a los avances.
+</p>
+<p>
+Además, los medios de comunicación tienden a destacar noticias negativas porque generan mayor impacto y audiencia.
+</p>
+<p>
+Esto crea una percepción distorsionada que no refleja la realidad completa.
+</p>
+<button onclick="toggle('extra2')">Ver más</button>
+<p id="extra2" class="hidden">Por ejemplo, aunque las guerras existen, hoy hay menos conflictos armados que en gran parte del siglo XX.</p>
+</div>
+</section>
+
+<section id="tema3">
+<div class="question">¿Qué hizo posible el progreso?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Industrial_Revolution.jpg/800px-Industrial_Revolution.jpg">
+<p>
+El progreso no ocurrió por casualidad. Fue el resultado de cambios profundos en la forma de pensar y organizar la sociedad.
+</p>
+<p>
+La Ilustración impulsó el uso de la razón y la ciencia para comprender el mundo.
+</p>
+<p>
+El liberalismo promovió la libertad individual y los derechos humanos.
+</p>
+<p>
+La Revolución Industrial permitió producir más bienes en menos tiempo, generando crecimiento económico.
+</p>
+<p>
+Estos tres procesos cambiaron radicalmente la historia humana.
+</p>
+</div>
+</section>
+
+<section id="tema4">
+<div class="question">¿La globalización ayuda?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Container_ship.jpg/800px-Container_ship.jpg">
+<p>
+La globalización conecta economías, culturas y conocimientos.
+</p>
+<p>
+Permite que los países intercambien bienes, servicios y tecnología.
+</p>
+<p>
+Esto genera crecimiento económico, mayor productividad y acceso a productos más baratos.
+</p>
+<p>
+Además, facilita la difusión del conocimiento y la innovación.
+</p>
+<canvas id="chart2"></canvas>
+</div>
+</section>
+
+<section id="tema5">
+<div class="question">¿Qué dicen los datos actuales?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Lightbulb.jpg/800px-Lightbulb.jpg">
+
+<p class="highlight">Principales avances medidos a nivel global:</p>
+
+<p>
+✔ La pobreza extrema cayó del 90% al 10% en dos siglos  
+✔ La esperanza de vida pasó de 30-40 años a más de 70  
+✔ La mortalidad infantil se redujo drásticamente  
+✔ El acceso a educación creció en todo el mundo  
+✔ Más del 60% de la población mundial tiene acceso a internet  
+</p>
+
+<p>
+Estos cambios no son menores: representan una transformación completa en la calidad de vida humana.
+</p>
+
+<p>
+Según datos de organismos internacionales, nunca antes en la historia tantas personas vivieron con acceso a salud, educación y oportunidades.
+</p>
+
+<p>
+Esto demuestra que el progreso no es una opinión, sino un hecho respaldado por evidencia.
+</p>
+
+<button onclick="toggle('extra5')">Ver más</button>
+
+<p id="extra5" class="hidden">
+Además, el acceso a tecnologías como vacunas, electricidad e internet permitió acelerar el desarrollo en regiones que históricamente estaban atrasadas.
+</p>
+
+</div>
+</section>
+
+<section id="tema6">
+<div class="question">¿Qué puede salir mal?</div>
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Wall_barrier.jpg/800px-Wall_barrier.jpg">
+<p>
+El progreso no está garantizado. Puede frenarse si se toman malas decisiones.
+</p>
+<p>
+El proteccionismo económico puede limitar el comercio.
+</p>
+<p>
+Los conflictos políticos pueden generar inestabilidad.
+</p>
+<p>
+La falta de innovación puede frenar el crecimiento.
+</p>
+<p>
+Por eso, es importante comprender cómo funciona el progreso para poder sostenerlo.
+</p>
+</div>
+</section>
+
+<section>
+<div class="question">Conclusión</div>
+<div class="card">
+
+<p>
+El mundo actual presenta problemas, pero también avances sin precedentes en la historia humana.
+</p>
+
+<p>
+Por primera vez, una gran parte de la población mundial tiene acceso a condiciones de vida que antes eran impensables.
+</p>
+
+<p>
+Sin embargo, existe una desconexión entre percepción y realidad: muchas personas creen que el mundo empeora, cuando los datos muestran lo contrario.
+</p>
+
+<p class="highlight">
+El verdadero desafío no es si el mundo progresa, sino comprender ese progreso y sostenerlo en el tiempo.
+</p>
+
+<p>
+El futuro dependerá de mantener los factores que hicieron posible este avance: la libertad, la innovación y la cooperación global.
+</p>
+
+</div>
+</section>
+
+<footer>
+<p><strong>Autores:</strong></p>
+<p>Felipe Affonso | Walkiria Alvarez | Pedro Aldave</p>
+<br>
+<p class="small">Norberg (2016) | Our World in Data | Banco Mundial | ONU</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        if(sec.getBoundingClientRect().top < window.innerHeight - 100){
+            sec.classList.add("visible");
+        }
+    });
+});
+
+function toggle(id){
+    const el = document.getElementById(id);
+    el.classList.toggle("hidden");
+}
+
+new Chart(document.getElementById('chart1'), {
+    type: 'line',
+    data: { labels:['1820','1900','1950','2000','2020'], datasets:[{label:'Pobreza',data:[90,70,55,30,10]}] }
+});
+
+new Chart(document.getElementById('chart2'), {
+    type: 'bar',
+    data: { labels:['Abiertos','Cerrados'], datasets:[{label:'Crecimiento',data:[5,2]}] }
+});
+</script>
+
+</body>
+</html>
